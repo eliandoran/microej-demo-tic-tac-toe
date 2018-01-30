@@ -44,13 +44,8 @@ public class BoardDrawing {
 	}
 
 	public void draw() {
-		Rectangle boardRect = getBoardRect();
-
 		for (int cellX = 0; cellX < board.getWidth(); cellX++) {
 			for (int cellY = 0; cellY < board.getHeight(); cellY++) {
-				int x = boardRect.getX() + (cellX * BOX_SIZE);
-				int y = boardRect.getY() + (cellY * BOX_SIZE);
-
 				CellState state = board.getAt(cellX, cellY);
 				drawCell(state, this.getCellRect(cellX, cellY));
 			}
