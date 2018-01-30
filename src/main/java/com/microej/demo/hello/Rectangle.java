@@ -34,4 +34,8 @@ public class Rectangle {
 	public int getHeight() {
 		return height;
 	}
+
+	public Rectangle offset(int offsetX, int offsetY) {
+		return new Rectangle(x + offsetX, y + offsetY, width, height);
+	}
 }

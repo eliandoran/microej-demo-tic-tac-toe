@@ -44,25 +44,25 @@ public class BoardDrawing {
 	}
 
 	public void draw() {
-		int totalWidth = board.getWidth() * BOX_SIZE;
-		int totalHeight = board.getHeight() * BOX_SIZE;
-		int startX = (display.getWidth() - totalWidth) / 2;
-		int startY = (display.getHeight() - totalHeight) / 2;
+		Rectangle boardRect = getBoardRect();
 
 		for (int cellX = 0; cellX < board.getWidth(); cellX++) {
 			for (int cellY = 0; cellY < board.getHeight(); cellY++) {
-				int x = startX + (cellX * BOX_SIZE);
-				int y = startY + (cellY * BOX_SIZE);
+				int x = boardRect.getX() + (cellX * BOX_SIZE);
+				int y = boardRect.getY() + (cellY * BOX_SIZE);
 
 				CellState state = board.getAt(cellX, cellY);
-				drawCell(state, x, y);
+				drawCell(state, this.getCellRect(cellX, cellY));
 			}
 		}
 	}
 
-	private void drawCell(CellState state, int x, int y) {
+	private void drawCell(CellState state, Rectangle cellRect) {
+		int x = cellRect.getX();
+		int y = cellRect.getY();
+
 		graphicsContext.setColor(boardColor);
-		graphicsContext.drawRect(x, y, BOX_SIZE, BOX_SIZE);
+		graphicsContext.drawRect(cellRect.getX(), cellRect.getY(), cellRect.getWidth(), cellRect.getHeight());
 
 		int padding = 5;
 
@@ -72,8 +72,8 @@ public class BoardDrawing {
 
 		switch (state) {
 		case X:
-			int startX = x + padding;
-			int startY = y + padding;
+			int startX = cellRect.getX() + padding;
+			int startY = cellRect.getY() + padding;
 			int endX = startX + BOX_SIZE - (padding * 2);
 			int endY = startY + BOX_SIZE - (padding * 2);
 
@@ -88,5 +88,25 @@ public class BoardDrawing {
 		default:
 			break;
 		}
+	}
+
+	public Rectangle getBoardRect() {
+		int totalWidth = board.getWidth() * BOX_SIZE;
+		int totalHeight = board.getHeight() * BOX_SIZE;
+		int startX = (display.getWidth() - totalWidth) / 2;
+		int startY = (display.getHeight() - totalHeight) / 2;
+
+		return new Rectangle(startX, startY, totalWidth, totalHeight);
+	}
+
+	public Rectangle getCellRect(int x, int y) {
+		int startX = x;
+		int startY = y;
+		int width = BOX_SIZE;
+		int height = BOX_SIZE;
+
+		Rectangle rect = getBoardRect();
+		return new Rectangle(startX, startY, width, height).offset(rect.getX(), rect.getY()).offset(BOX_SIZE * x,
+				BOX_SIZE * y);
 	}
 }
