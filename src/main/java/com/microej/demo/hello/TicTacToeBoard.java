@@ -13,7 +13,6 @@ public class TicTacToeBoard {
 	public TicTacToeBoard() {
 		this.boardWidth = this.boardHeight = 3;
 		this.board = new CellState[this.boardHeight][this.boardWidth];
-		fill(CellState.Empty);
 	}
 
 	public int getWidth() {
@@ -32,14 +31,6 @@ public class TicTacToeBoard {
 	public void setAt(int x, int y, CellState newState) {
 		validateCoordinates(x, y);
 		board[y][x] = newState;
-	}
-
-	public void fill(CellState newState) {
-		for (int x = 0; x < this.boardWidth; x++) {
-			for (int y = 0; y < this.boardHeight; y++) {
-				board[y][x] = newState;
-			}
-		}
 	}
 
 	private void validateCoordinates(int x, int y) {

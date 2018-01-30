@@ -10,5 +10,5 @@ package com.microej.demo.hello;
  *
  */
 public enum CellState {
-	Empty, X, O
+	X, O
 }

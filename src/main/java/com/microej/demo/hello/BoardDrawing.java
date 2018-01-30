@@ -62,9 +62,11 @@ public class BoardDrawing {
 
 		int padding = 5;
 
-		if (state != CellState.Empty) {
-			graphicsContext.setColor(cellStateColors.get(state));
+		if (state == null) {
+			return;
 		}
+
+		graphicsContext.setColor(cellStateColors.get(state));
 
 		switch (state) {
 		case X:
@@ -79,9 +81,6 @@ public class BoardDrawing {
 
 		case O:
 			graphicsContext.drawCircle(x + padding, y + padding, BOX_SIZE - (padding * 2));
-			break;
-
-		default:
 			break;
 		}
 	}
