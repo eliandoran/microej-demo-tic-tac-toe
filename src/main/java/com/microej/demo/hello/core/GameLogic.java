@@ -36,6 +36,8 @@ public class GameLogic {
 
 		// Check for vertical winnings.
 		verticalWinnerCheck();
+		horizontalWinnerCheck();
+		diagonalWinnerCheck();
 	}
 
 	public void verticalWinnerCheck() {
@@ -65,6 +67,82 @@ public class GameLogic {
 
 				return;
 			}
+		}
+	}
+
+	public void horizontalWinnerCheck() {
+		boolean xWon, oWon;
+
+		for (int cellY = 0; cellY < board.getHeight(); cellY++) {
+			xWon = true;
+			oWon = true;
+
+			for (int cellX = 0; cellX < board.getWidth(); cellX++) {
+				CellState state = board.getAt(cellX, cellY);
+
+				if (state == null) {
+					xWon = oWon = false;
+				}
+				if (state != CellState.X) {
+					xWon = false;
+				} else if (state != CellState.O) {
+					oWon = false;
+				}
+			}
+
+			if (xWon || oWon) {
+				if (xWon) {
+					System.out.println("X won");
+				}
+
+				return;
+			}
+		}
+	}
+
+	public void diagonalWinnerCheck() {
+		boolean xWon = true, oWon = true;
+
+		for (int i = 0; i < board.getWidth(); i++) {
+			CellState state = board.getAt(i, i);
+			if (state == null) {
+				xWon = oWon = false;
+			}
+			if (state != CellState.X) {
+				xWon = false;
+			} else if (state != CellState.O) {
+				oWon = false;
+			}
+		}
+
+		if (xWon || oWon) {
+			if (xWon) {
+				System.out.println("X won");
+			}
+
+			return;
+		}
+
+		xWon = oWon = true;
+
+		for (int i = 0; i < board.getWidth(); i++) {
+			CellState state = board.getAt(board.getWidth() - i - 1, board.getWidth() - i - 1);
+			if (state == null) {
+				xWon = oWon = false;
+			}
+			if (state != CellState.X) {
+				xWon = false;
+			} else if (state != CellState.O) {
+				oWon = false;
+			}
+		}
+
+		if (xWon || oWon) {
+			if (xWon) {
+				System.out.println("X won");
+			}
+
+			return;
 		}
 	}
 }
