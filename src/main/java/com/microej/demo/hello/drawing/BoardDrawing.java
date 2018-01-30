@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.microej.demo.hello.core.CellState;
+import com.microej.demo.hello.core.Point;
 import com.microej.demo.hello.core.Rectangle;
 import com.microej.demo.hello.core.TicTacToeBoard;
 
@@ -98,5 +99,17 @@ public class BoardDrawing extends Drawing {
 		result = result.offsetBy(getBoardRect());
 		result = result.offsetBy(BOX_SIZE * x, BOX_SIZE * y);
 		return result;
+	}
+
+	public Point getCellPosAt(int screenX, int screenY) {
+		for (int cellX = 0; cellX < board.getWidth(); cellX++) {
+			for (int cellY = 0; cellY < board.getHeight(); cellY++) {
+				if (getCellRect(cellX, cellY).isInside(screenX, screenY)) {
+					return new Point(cellX, cellY);
+				}
+			}
+		}
+
+		return null;
 	}
 }

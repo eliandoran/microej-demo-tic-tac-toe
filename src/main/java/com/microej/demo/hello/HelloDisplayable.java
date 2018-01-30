@@ -10,6 +10,7 @@ package com.microej.demo.hello;
 import java.io.IOException;
 
 import com.microej.demo.hello.core.CellState;
+import com.microej.demo.hello.core.Point;
 import com.microej.demo.hello.core.TicTacToeBoard;
 import com.microej.demo.hello.drawing.BoardDrawing;
 
@@ -82,7 +83,11 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 				Integer pointerY = p.getY();
 
 				if (boardDrawing.getBoardRect().isInside(pointerX, pointerY)) {
-					System.out.println(pointerX.toString() + " " + pointerY.toString());
+					Point cellPos = boardDrawing.getCellPosAt(pointerX, pointerY);
+					Integer cellX = cellPos.getX();
+					Integer cellY = cellPos.getY();
+
+					System.out.println(cellX.toString() + " " + cellY.toString());
 				}
 
 				/*

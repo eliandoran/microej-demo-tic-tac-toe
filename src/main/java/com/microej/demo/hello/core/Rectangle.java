@@ -55,4 +55,8 @@ public class Rectangle {
 		return ((pointX >= getX() && pointX <= getEndX()) &&
 				(pointY >= getY() && pointY <= getEndY()));
 	}
+
+	public boolean isInside(Point point) {
+		return isInside(point.getX(), point.getY());
+	}
 }
