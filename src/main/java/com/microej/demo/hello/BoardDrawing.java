@@ -57,7 +57,8 @@ public class BoardDrawing {
 		int y = cellRect.getY();
 
 		graphicsContext.setColor(boardColor);
-		graphicsContext.drawRect(cellRect.getX(), cellRect.getY(), cellRect.getWidth(), cellRect.getHeight());
+		graphicsContext.drawRect(cellRect.getX() - 1, cellRect.getY() - 1, cellRect.getWidth() + 1,
+				cellRect.getHeight() + 1);
 
 		int padding = 5;
 
