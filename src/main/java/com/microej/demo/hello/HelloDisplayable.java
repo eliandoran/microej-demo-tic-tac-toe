@@ -9,7 +9,7 @@ package com.microej.demo.hello;
 
 import java.io.IOException;
 
-import com.microej.demo.hello.core.CellState;
+import com.microej.demo.hello.core.GameLogic;
 import com.microej.demo.hello.core.Point;
 import com.microej.demo.hello.core.TicTacToeBoard;
 import com.microej.demo.hello.drawing.BoardDrawing;
@@ -30,13 +30,16 @@ import ej.microui.util.EventHandler;
 public class HelloDisplayable extends Displayable implements EventHandler{
 
 	private Image microejImage;
+
 	private final TicTacToeBoard board;
+	private final GameLogic logic;
 	private final BoardDrawing boardDrawing;
 
 	public HelloDisplayable() {
 		super(Display.getDefaultDisplay());
 
 		board = new TicTacToeBoard();
+		logic = new GameLogic(board);
 		boardDrawing = new BoardDrawing(board);
 
 		try {
@@ -56,10 +59,6 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 		g.fillRect(0, 0, width, height);
 
 		g.setColor(Colors.BLACK);
-
-		board.setAt(0, 0, CellState.X);
-		board.setAt(1, 1, CellState.O);
-		board.setAt(2, 1, CellState.X);
 
 		boardDrawing.setGraphicsContext(g);
 		boardDrawing.setDisplay(getDisplay());
@@ -88,6 +87,9 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 					Integer cellY = cellPos.getY();
 
 					System.out.println(cellX.toString() + " " + cellY.toString());
+
+					logic.mark(cellX, cellY);
+					repaint();
 				}
 
 				/*
