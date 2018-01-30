@@ -1,0 +1,5 @@
+#Tue Jan 30 16:20:20 EET 2018
+version=1.0.0
+name=hello
+types=java.util.logging.*,ej.util.property.*,ej.exit.*,ej.exit.wadapps.*,java.security.*,ej.components.*,ej.microui.event.*,__hello__.generated.*,ej.wadapps.property.*,ej.wadapps.management.*,ej.components.registry.util.*,ej.microui.event.controller.*,ej.wadapps.registry.*,ej.microui.*,org.eclipse.core.runtime.*,ej.microui.display.transform.*,ej.microui.led.*,ej.components.dependencyinjection.*,ej.components.dependencyinjection.util.*,ej.microui.util.*,com.microej.demo.hello.images.*,java.lang.*,ej.microui.display.shape.*,ej.io.progress.*,ej.wadapps.registry.util.*,ej.components.registry.impl.*,java.io.*,com.microej.demo.hello.*,java.lang.ref.*,com.microej.demo.hello.fonts.*,ej.observable.*,java.lang.annotation.*,java.lang.reflect.*,ej.components.registry.*,properties.*,ej.kf.*,ej.microui.event.generator.*,ej.wadapps.admin.*,ej.wadapps.storage.*,java.util.*,ej.bon.*,icons.*,ej.microui.display.*,ej.wadapps.app.*,ej.util.logging.handler.*
+entryPoint=__hello__.generated.HelloEntryPoint
