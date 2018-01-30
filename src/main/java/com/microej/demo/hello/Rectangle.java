@@ -35,7 +35,11 @@ public class Rectangle {
 		return height;
 	}
 
-	public Rectangle offset(int offsetX, int offsetY) {
+	public Rectangle offsetBy(int offsetX, int offsetY) {
 		return new Rectangle(x + offsetX, y + offsetY, width, height);
+	}
+
+	public Rectangle offsetBy(Rectangle sourceRect) {
+		return new Rectangle(x + sourceRect.x, y + sourceRect.y, width, height);
 	}
 }

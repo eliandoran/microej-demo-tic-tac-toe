@@ -105,8 +105,9 @@ public class BoardDrawing {
 		int width = BOX_SIZE;
 		int height = BOX_SIZE;
 
-		Rectangle rect = getBoardRect();
-		return new Rectangle(startX, startY, width, height).offset(rect.getX(), rect.getY()).offset(BOX_SIZE * x,
-				BOX_SIZE * y);
+		Rectangle result = new Rectangle(startX, startY, width, height);
+		result = result.offsetBy(getBoardRect());
+		result = result.offsetBy(BOX_SIZE * x, BOX_SIZE * y);
+		return result;
 	}
 }
