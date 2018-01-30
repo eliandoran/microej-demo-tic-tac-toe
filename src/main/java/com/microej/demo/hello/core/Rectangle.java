@@ -35,11 +35,24 @@ public class Rectangle {
 		return height;
 	}
 
+	public int getEndX() {
+		return x + width;
+	}
+
+	public int getEndY() {
+		return y + height;
+	}
+
 	public Rectangle offsetBy(int offsetX, int offsetY) {
 		return new Rectangle(x + offsetX, y + offsetY, width, height);
 	}
 
 	public Rectangle offsetBy(Rectangle sourceRect) {
 		return new Rectangle(x + sourceRect.x, y + sourceRect.y, width, height);
+	}
+
+	public boolean isInside(int pointX, int pointY) {
+		return ((pointX >= getX() && pointX <= getEndX()) &&
+				(pointY >= getY() && pointY <= getEndY()));
 	}
 }

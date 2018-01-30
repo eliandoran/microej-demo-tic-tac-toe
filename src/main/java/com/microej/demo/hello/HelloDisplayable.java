@@ -78,6 +78,13 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 		if (Event.getType(event) == Event.POINTER) {
 			Pointer p = (Pointer) EventGenerator.get(Event.getGeneratorID(event));
 			if (Pointer.isPressed(event)) {
+				Integer pointerX = p.getX();
+				Integer pointerY = p.getY();
+
+				if (boardDrawing.getBoardRect().isInside(pointerX, pointerY)) {
+					System.out.println(pointerX.toString() + " " + pointerY.toString());
+				}
+
 				/*
 				 * int height = homeImage.getHeight(); if (isIncluded(p,
 				 * HOME_PADDING, Display.getDefaultDisplay().getHeight() -
