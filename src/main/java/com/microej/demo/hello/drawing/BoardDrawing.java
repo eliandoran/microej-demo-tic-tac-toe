@@ -4,22 +4,23 @@
  * Copyright 2018 IS2T. All rights reserved.
  * IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package com.microej.demo.hello;
+package com.microej.demo.hello.drawing;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import com.microej.demo.hello.core.CellState;
+import com.microej.demo.hello.core.Rectangle;
+import com.microej.demo.hello.core.TicTacToeBoard;
+
 import ej.microui.display.Colors;
-import ej.microui.display.Display;
-import ej.microui.display.GraphicsContext;
 
 /**
  *
  */
-public class BoardDrawing {
+public class BoardDrawing extends Drawing {
 	private final TicTacToeBoard board;
-	private GraphicsContext graphicsContext;
-	private Display display;
+
 	private final int BOX_SIZE = 70;
 
 	private final Integer boardColor;
@@ -35,14 +36,7 @@ public class BoardDrawing {
 		this.cellStateColors.put(CellState.O, Colors.RED);
 	}
 
-	public void setGraphicsContext(GraphicsContext g) {
-		this.graphicsContext = g;
-	}
-
-	public void setDisplay(Display display) {
-		this.display = display;
-	}
-
+	@Override
 	public void draw() {
 		for (int cellX = 0; cellX < board.getWidth(); cellX++) {
 			for (int cellY = 0; cellY < board.getHeight(); cellY++) {

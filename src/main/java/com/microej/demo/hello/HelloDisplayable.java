@@ -9,6 +9,10 @@ package com.microej.demo.hello;
 
 import java.io.IOException;
 
+import com.microej.demo.hello.core.CellState;
+import com.microej.demo.hello.core.TicTacToeBoard;
+import com.microej.demo.hello.drawing.BoardDrawing;
+
 import ej.microui.display.Colors;
 import ej.microui.display.Display;
 import ej.microui.display.Displayable;
