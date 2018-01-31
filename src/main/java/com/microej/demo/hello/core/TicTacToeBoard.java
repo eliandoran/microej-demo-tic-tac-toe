@@ -37,6 +37,17 @@ public class TicTacToeBoard {
 		this.board = new CellState[this.boardHeight][this.boardWidth];
 	}
 
+	public boolean isFull() {
+		for (int x = 0; x < this.boardWidth; x++) {
+			for (int y = 0; y < this.boardHeight; y++) {
+				if (board[y][x] == null) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
 	private void validateCoordinates(int x, int y) {
 		if (x < 0 || x >= this.boardWidth) {
 			throw new IllegalArgumentException("x should be between 0 and getWidth()-1");

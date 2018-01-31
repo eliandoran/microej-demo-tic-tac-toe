@@ -28,22 +28,26 @@ public class WinningStrikeDrawing extends Drawing {
 
 	@Override
 	public void draw() {
-		if (winnerChecker.getWinner() == null) {
+		if (winnerChecker.getWinner() != null) {
+			graphicsContext.setColor(color);
+
+			Point startingPoint = winnerChecker.getStartingPoint();
+			Point endingPoint = winnerChecker.getEndingPoint();
+
+			if (Point.haveSameX(startingPoint, endingPoint) && !Point.haveSameY(startingPoint, endingPoint)) {
+				drawVerticalStrike(startingPoint.getX());
+			} else if (!Point.haveSameX(startingPoint, endingPoint) && Point.haveSameY(startingPoint, endingPoint)) {
+				drawHorizontalStrike(startingPoint.getY());
+			} else {
+				boolean reverse = (startingPoint.getX() != 0);
+				drawDiagonalStrike(reverse);
+			}
+
 			return;
 		}
 
-		graphicsContext.setColor(color);
-
-		Point startingPoint = winnerChecker.getStartingPoint();
-		Point endingPoint = winnerChecker.getEndingPoint();
-
-		if (Point.haveSameX(startingPoint, endingPoint) && !Point.haveSameY(startingPoint, endingPoint)) {
-			drawVerticalStrike(startingPoint.getX());
-		} else if (!Point.haveSameX(startingPoint, endingPoint) && Point.haveSameY(startingPoint, endingPoint)) {
-			drawHorizontalStrike(startingPoint.getY());
-		} else {
-			boolean reverse = (startingPoint.getX() != 0);
-			drawDiagonalStrike(reverse);
+		if (winnerChecker.isTie() != null && winnerChecker.isTie()) {
+			drawTie();
 		}
 	}
 
@@ -76,5 +80,10 @@ public class WinningStrikeDrawing extends Drawing {
 
 			graphicsContext.drawLine(firstCell.getEndX(), firstCell.getY(), lastCell.getX(), lastCell.getEndY());
 		}
+	}
+
+	private void drawTie() {
+		drawDiagonalStrike(false);
+		drawDiagonalStrike(true);
 	}
 }

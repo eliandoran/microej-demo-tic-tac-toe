@@ -14,6 +14,7 @@ public class WinnerChecker {
 	private CellState winner;
 	private Point startingPoint;
 	private Point endingPoint;
+	private Boolean isTie;
 
 	public WinnerChecker(TicTacToeBoard board) {
 		this.board = board;
@@ -22,12 +23,18 @@ public class WinnerChecker {
 	public boolean determineWinner() {
 		winner = null;
 		startingPoint = endingPoint = null;
+		isTie = null;
+
 		lineScan();
 		return (winner != null);
 	}
 
 	public CellState getWinner() {
 		return this.winner;
+	}
+
+	public Boolean isTie() {
+		return isTie;
 	}
 
 	public Point getStartingPoint() {
@@ -46,6 +53,10 @@ public class WinnerChecker {
 
 		scan(0, 0, 1, 1);
 		scan(board.getWidth() - 1, 0, -1, 1);
+
+		if (board.isFull() && getWinner() == null) {
+			isTie = true;
+		}
 	}
 
 	private void scan(int x, int y, int xGain, int yGain) {
