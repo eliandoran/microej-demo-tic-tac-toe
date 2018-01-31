@@ -43,6 +43,14 @@ public class Rectangle {
 		return y + height;
 	}
 
+	public int getCenterX() {
+		return x + (width / 2);
+	}
+
+	public int getCenterY() {
+		return y + (height / 2);
+	}
+
 	public Rectangle offsetBy(int offsetX, int offsetY) {
 		return new Rectangle(x + offsetX, y + offsetY, width, height);
 	}

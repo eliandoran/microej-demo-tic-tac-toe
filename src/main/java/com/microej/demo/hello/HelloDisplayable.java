@@ -43,7 +43,7 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 		board = new TicTacToeBoard();
 		logic = new GameLogic(board);
 		boardDrawing = new BoardDrawing(board);
-		strikeDrawing = new WinningStrikeDrawing(board, logic.getWinnerChecker());
+		strikeDrawing = new WinningStrikeDrawing(boardDrawing, logic.getWinnerChecker());
 
 		try {
 			microejImage = Image.createImage("/com/microej/demo/hello/images/microej.png");
@@ -66,6 +66,9 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 		boardDrawing.setGraphicsContext(g);
 		boardDrawing.setDisplay(getDisplay());
 		boardDrawing.draw();
+
+		strikeDrawing.setGraphicsContext(g);
+		strikeDrawing.setDisplay(getDisplay());
 		strikeDrawing.draw();
 
 		// g.drawImage(microejImage, width / 2, y, GraphicsContext.HCENTER |

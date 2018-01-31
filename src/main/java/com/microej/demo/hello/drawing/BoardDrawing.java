@@ -80,6 +80,10 @@ public class BoardDrawing extends Drawing {
 		}
 	}
 
+	public TicTacToeBoard getBoard() {
+		return board;
+	}
+
 	public Rectangle getBoardRect() {
 		int totalWidth = board.getWidth() * BOX_SIZE;
 		int totalHeight = board.getHeight() * BOX_SIZE;
