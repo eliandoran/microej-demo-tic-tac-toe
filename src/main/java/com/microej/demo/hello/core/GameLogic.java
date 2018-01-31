@@ -18,11 +18,15 @@ public class GameLogic {
 		this.board = board;
 		this.winnerChecker = new WinnerChecker(board);
 
+		if (board.getWidth() != 3 || board.getHeight() != 3) {
+			throw new UnsupportedOperationException("Board size can only be three");
+		}
+
 		reset();
 	}
 
 	public boolean mark(int cellX, int cellY) {
-		if (this.winnerChecker.getWinner() != null) {
+		if (hasEnded()) {
 			reset();
 			return false;
 		}
@@ -33,19 +37,25 @@ public class GameLogic {
 
 		board.setAt(cellX, cellY, turn);
 
-		if (!checkWinner()) {
+		winnerChecker.determineWinner();
+
+		if (!hasEnded()) {
 			nextTurn();
 		}
 
 		return true;
 	}
 
-	public boolean checkWinner() {
-		if (board.getWidth() != 3 || board.getHeight() != 3) {
-			throw new UnsupportedOperationException("Board size can only be three");
+	public boolean hasEnded() {
+		if (winnerChecker.getWinner() != null) {
+			return true;
 		}
 
-		return winnerChecker.determineWinner();
+		if (winnerChecker.isTie() != null && winnerChecker.isTie()) {
+			return true;
+		}
+
+		return false;
 	}
 
 	public WinnerChecker getWinnerChecker() {
