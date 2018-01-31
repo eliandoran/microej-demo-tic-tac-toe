@@ -13,6 +13,7 @@ import com.microej.demo.hello.core.GameLogic;
 import com.microej.demo.hello.core.Point;
 import com.microej.demo.hello.core.TicTacToeBoard;
 import com.microej.demo.hello.drawing.BoardDrawing;
+import com.microej.demo.hello.drawing.WinningStrikeDrawing;
 
 import ej.microui.display.Colors;
 import ej.microui.display.Display;
@@ -34,6 +35,7 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 	private final TicTacToeBoard board;
 	private final GameLogic logic;
 	private final BoardDrawing boardDrawing;
+	private final WinningStrikeDrawing strikeDrawing;
 
 	public HelloDisplayable() {
 		super(Display.getDefaultDisplay());
@@ -41,6 +43,7 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 		board = new TicTacToeBoard();
 		logic = new GameLogic(board);
 		boardDrawing = new BoardDrawing(board);
+		strikeDrawing = new WinningStrikeDrawing(board, logic.getWinnerChecker());
 
 		try {
 			microejImage = Image.createImage("/com/microej/demo/hello/images/microej.png");
@@ -63,6 +66,7 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 		boardDrawing.setGraphicsContext(g);
 		boardDrawing.setDisplay(getDisplay());
 		boardDrawing.draw();
+		strikeDrawing.draw();
 
 		// g.drawImage(microejImage, width / 2, y, GraphicsContext.HCENTER |
 		// GraphicsContext.TOP);

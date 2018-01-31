@@ -25,4 +25,12 @@ public class Point {
 	public int getY() {
 		return y;
 	}
+
+	public static boolean haveSameX(Point a, Point b) {
+		return (a.x == b.x);
+	}
+
+	public static boolean haveSameY(Point a, Point b) {
+		return (a.y == b.y);
+	}
 }

@@ -26,7 +26,9 @@ public class GameLogic {
 		}
 
 		board.setAt(cellX, cellY, turn);
+
 		checkWinner();
+
 		return true;
 	}
 
@@ -35,6 +37,12 @@ public class GameLogic {
 			throw new UnsupportedOperationException("Board size can only be three");
 		}
 
-		winnerChecker.determineWinner();
+		if (winnerChecker.determineWinner()) {
+			System.out.println(winnerChecker.getWinner());
+		}
+	}
+
+	public WinnerChecker getWinnerChecker() {
+		return winnerChecker;
 	}
 }

@@ -11,15 +11,30 @@ package com.microej.demo.hello.core;
  */
 public class WinnerChecker {
 	private final TicTacToeBoard board;
+	private CellState winner;
+	private Point startingPoint;
+	private Point endingPoint;
 
 	public WinnerChecker(TicTacToeBoard board) {
 		this.board = board;
 	}
 
 	public boolean determineWinner() {
+		winner = null;
 		lineScan();
+		return (winner != null);
+	}
 
-		return false;
+	public CellState getWinner() {
+		return this.winner;
+	}
+
+	public Point getStartingPoint() {
+		return this.startingPoint;
+	}
+
+	public Point getEndingPoint() {
+		return this.endingPoint;
 	}
 
 	private void lineScan() {
@@ -33,6 +48,7 @@ public class WinnerChecker {
 	}
 
 	private void scan(int x, int y, int xGain, int yGain) {
+		Point startingPoint = new Point(x, y);
 		CellState previousState = null;
 
 		while (x < board.getWidth() && y < board.getHeight()) {
@@ -54,6 +70,8 @@ public class WinnerChecker {
 			y += yGain;
 		}
 
-		System.out.println(previousState);
+		this.startingPoint = startingPoint;
+		this.endingPoint = new Point(x - xGain, y - yGain);
+		this.winner = previousState;
 	}
 }
