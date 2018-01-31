@@ -28,9 +28,9 @@ public class WinningStrikeDrawing extends Drawing {
 
 	@Override
 	public void draw() {
-		if (winnerChecker.getWinner() != null) {
-			graphicsContext.setColor(color);
+		graphicsContext.setColor(color);
 
+		if (winnerChecker.getWinner() != null) {
 			Point startingPoint = winnerChecker.getStartingPoint();
 			Point endingPoint = winnerChecker.getEndingPoint();
 
