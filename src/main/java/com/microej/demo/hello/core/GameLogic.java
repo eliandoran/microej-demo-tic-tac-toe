@@ -16,12 +16,14 @@ public class GameLogic {
 
 	public GameLogic(TicTacToeBoard board) {
 		this.board = board;
-		this.turn = CellState.X;
 		this.winnerChecker = new WinnerChecker(board);
+
+		reset();
 	}
 
 	public boolean mark(int cellX, int cellY) {
 		if (this.winnerChecker.getWinner() != null) {
+			reset();
 			return false;
 		}
 
@@ -48,6 +50,12 @@ public class GameLogic {
 
 	public WinnerChecker getWinnerChecker() {
 		return winnerChecker;
+	}
+
+	private void reset() {
+		turn = CellState.X;
+		board.empty();
+		winnerChecker.determineWinner();
 	}
 
 	private void nextTurn() {

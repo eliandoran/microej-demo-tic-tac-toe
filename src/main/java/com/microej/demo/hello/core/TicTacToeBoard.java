@@ -7,12 +7,12 @@
 package com.microej.demo.hello.core;
 
 public class TicTacToeBoard {
-	private final CellState[][] board;
+	private CellState[][] board;
 	private final int boardWidth, boardHeight;
 
 	public TicTacToeBoard() {
 		this.boardWidth = this.boardHeight = 3;
-		this.board = new CellState[this.boardHeight][this.boardWidth];
+		empty();
 	}
 
 	public int getWidth() {
@@ -31,6 +31,10 @@ public class TicTacToeBoard {
 	public void setAt(int x, int y, CellState newState) {
 		validateCoordinates(x, y);
 		board[y][x] = newState;
+	}
+
+	public void empty() {
+		this.board = new CellState[this.boardHeight][this.boardWidth];
 	}
 
 	private void validateCoordinates(int x, int y) {

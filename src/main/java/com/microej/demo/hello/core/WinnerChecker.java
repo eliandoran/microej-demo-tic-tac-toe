@@ -21,6 +21,7 @@ public class WinnerChecker {
 
 	public boolean determineWinner() {
 		winner = null;
+		startingPoint = endingPoint = null;
 		lineScan();
 		return (winner != null);
 	}
