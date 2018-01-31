@@ -21,28 +21,44 @@ public class GameLogic {
 	}
 
 	public boolean mark(int cellX, int cellY) {
+		if (this.winnerChecker.getWinner() != null) {
+			return false;
+		}
+
 		if (board.getAt(cellX, cellY) != null) {
 			return false;
 		}
 
 		board.setAt(cellX, cellY, turn);
 
-		checkWinner();
+		if (!checkWinner()) {
+			nextTurn();
+		}
 
 		return true;
 	}
 
-	public void checkWinner() {
+	public boolean checkWinner() {
 		if (board.getWidth() != 3 || board.getHeight() != 3) {
 			throw new UnsupportedOperationException("Board size can only be three");
 		}
 
-		if (winnerChecker.determineWinner()) {
-			System.out.println(winnerChecker.getWinner());
-		}
+		return winnerChecker.determineWinner();
 	}
 
 	public WinnerChecker getWinnerChecker() {
 		return winnerChecker;
+	}
+
+	private void nextTurn() {
+		switch (turn) {
+		case X:
+			turn = CellState.O;
+			break;
+
+		case O:
+			turn = CellState.X;
+			break;
+		}
 	}
 }
