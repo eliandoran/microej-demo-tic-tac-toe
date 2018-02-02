@@ -55,7 +55,7 @@ public class HelloActivity implements Activity {
 
 	@Override
 	public String getID() {
-		return "Hello-activity";
+		return "TicTacToe";
 	}
 
 }

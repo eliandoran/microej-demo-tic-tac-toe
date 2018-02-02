@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Application-Id: hello
+Application-Id: TicTacToe
 Application-Version: 1.0.0
-Application-PrintableName: Hello
-Application-Description: Say "Hello" in many\nlanguages
-Application-Activities: xyz.doran.elian.microej.demo.HelloActivity
+Application-PrintableName: Tic-Tac-Toe
+Application-Description: A simple three by three tic-tac-toe game
+Application-Activities: xyz.doran.elian.microej.demo.tic_tac_toe.HelloActivity
 Application-IconsDirectory: icons
