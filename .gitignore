@@ -2,3 +2,4 @@ bin
 .settings
 .generated~
 *.generated.*
+target~
