@@ -7,8 +7,6 @@
  */
 package com.microej.demo.hello;
 
-import java.io.IOException;
-
 import com.microej.demo.hello.core.GameLogic;
 import com.microej.demo.hello.core.Point;
 import com.microej.demo.hello.core.TicTacToeBoard;
@@ -19,7 +17,6 @@ import ej.microui.display.Colors;
 import ej.microui.display.Display;
 import ej.microui.display.Displayable;
 import ej.microui.display.GraphicsContext;
-import ej.microui.display.Image;
 import ej.microui.event.Event;
 import ej.microui.event.EventGenerator;
 import ej.microui.event.generator.Pointer;
@@ -28,10 +25,7 @@ import ej.microui.util.EventHandler;
 /**
  * Displays MicroEJ image and a list of "Hello" messages.
  */
-public class HelloDisplayable extends Displayable implements EventHandler{
-
-	private Image microejImage;
-
+public class HelloDisplayable extends Displayable implements EventHandler {
 	private final TicTacToeBoard board;
 	private final GameLogic logic;
 	private final BoardDrawing boardDrawing;
@@ -44,18 +38,10 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 		logic = new GameLogic(board);
 		boardDrawing = new BoardDrawing(board);
 		strikeDrawing = new WinningStrikeDrawing(boardDrawing, logic.getWinnerChecker());
-
-		try {
-			microejImage = Image.createImage("/com/microej/demo/hello/images/microej.png");
-		}
-		catch (IOException e) {
-			throw new AssertionError(e);
-		}
 	}
 
 	@Override
 	public void paint(GraphicsContext g) {
-		// clean
 		g.setColor(Colors.WHITE);
 		int width = getDisplay().getWidth();
 		int height = getDisplay().getHeight();
@@ -70,9 +56,6 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 		strikeDrawing.setGraphicsContext(g);
 		strikeDrawing.setDisplay(getDisplay());
 		strikeDrawing.draw();
-
-		// g.drawImage(microejImage, width / 2, y, GraphicsContext.HCENTER |
-		// GraphicsContext.TOP);
 	}
 
 	@Override
@@ -96,29 +79,8 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 					logic.mark(cellX, cellY);
 					repaint();
 				}
-
-				/*
-				 * int height = homeImage.getHeight(); if (isIncluded(p,
-				 * HOME_PADDING, Display.getDefaultDisplay().getHeight() -
-				 * height - HOME_PADDING, homeImage.getWidth(), height)) { //
-				 * here, the user has pressed on the image System.out.println(
-				 * "=> EXIT REQUEST"); ActivitiesScheduler scheduler =
-				 * ServiceLoaderFactory.getServiceLoader()
-				 * .getService(ActivitiesScheduler.class); if (scheduler !=
-				 * null) { // An activity scheduler is registered in the system
-				 * // Trigger a come back to the registered launcher
-				 * System.out.println("=> SHOW LAUNCHER");
-				 * scheduler.showLauncher(); } return true; }
-				 */
 			}
 		}
 		return false;
 	}
-
-	private static boolean isIncluded(Pointer p, int startX, int startY, int width, int height) {
-		int x = p.getX();
-		int y = p.getY();
-		return (x >= startX && x < width + startX) && (y >= startY && y < height + startY);
-	}
-
 }
