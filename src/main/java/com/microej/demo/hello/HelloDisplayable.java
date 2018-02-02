@@ -93,8 +93,6 @@ public class HelloDisplayable extends Displayable implements EventHandler{
 					Integer cellX = cellPos.getX();
 					Integer cellY = cellPos.getY();
 
-					System.out.println(cellX.toString() + " " + cellY.toString());
-
 					logic.mark(cellX, cellY);
 					repaint();
 				}
