@@ -5,7 +5,7 @@
  * For demonstration purpose only.
  * IS2T PROPRIETARY. Use is subject to license terms.
  */
-package xyz.elian.doran.microej.demo.tic_tac_toe;
+package xyz.doran.elian.microej.demo.tic_tac_toe;
 
 import ej.microui.display.Colors;
 import ej.microui.display.Display;
@@ -15,11 +15,11 @@ import ej.microui.event.Event;
 import ej.microui.event.EventGenerator;
 import ej.microui.event.generator.Pointer;
 import ej.microui.util.EventHandler;
-import xyz.elian.doran.microej.demo.tic_tac_toe.core.GameLogic;
-import xyz.elian.doran.microej.demo.tic_tac_toe.core.Point;
-import xyz.elian.doran.microej.demo.tic_tac_toe.core.TicTacToeBoard;
-import xyz.elian.doran.microej.demo.tic_tac_toe.drawing.BoardDrawing;
-import xyz.elian.doran.microej.demo.tic_tac_toe.drawing.WinningStrikeDrawing;
+import xyz.doran.elian.microej.demo.tic_tac_toe.core.GameLogic;
+import xyz.doran.elian.microej.demo.tic_tac_toe.core.Point;
+import xyz.doran.elian.microej.demo.tic_tac_toe.core.TicTacToeBoard;
+import xyz.doran.elian.microej.demo.tic_tac_toe.drawing.BoardDrawing;
+import xyz.doran.elian.microej.demo.tic_tac_toe.drawing.WinningStrikeDrawing;
 
 /**
  * Displays MicroEJ image and a list of "Hello" messages.
