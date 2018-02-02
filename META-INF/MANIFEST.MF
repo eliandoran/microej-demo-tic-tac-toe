@@ -3,5 +3,5 @@ Application-Id: hello
 Application-Version: 1.0.0
 Application-PrintableName: Hello
 Application-Description: Say "Hello" in many\nlanguages
-Application-Activities: com.microej.demo.hello.HelloActivity
+Application-Activities: xyz.elian.doran.microej.demo.tic_tac_toe.HelloActivity
 Application-IconsDirectory: icons

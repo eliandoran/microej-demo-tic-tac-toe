@@ -4,13 +4,12 @@
  * Copyright 2018 IS2T. All rights reserved.
  * IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package com.microej.demo.hello.drawing;
-
-import com.microej.demo.hello.core.Point;
-import com.microej.demo.hello.core.Rectangle;
-import com.microej.demo.hello.core.WinnerChecker;
+package xyz.elian.doran.microej.demo.tic_tac_toe.drawing;
 
 import ej.microui.display.Colors;
+import xyz.elian.doran.microej.demo.tic_tac_toe.core.Point;
+import xyz.elian.doran.microej.demo.tic_tac_toe.core.Rectangle;
+import xyz.elian.doran.microej.demo.tic_tac_toe.core.WinnerChecker;
 
 /**
  *

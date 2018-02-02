@@ -5,7 +5,7 @@
  * For demonstration purpose only.
  * IS2T PROPRIETARY. Use is subject to license terms.
  */
-package com.microej.demo.hello;
+package xyz.elian.doran.microej.demo.tic_tac_toe;
 
 import ej.microui.MicroUI;
 import ej.wadapps.app.Activity;

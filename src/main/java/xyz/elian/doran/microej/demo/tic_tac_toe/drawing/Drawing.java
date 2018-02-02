@@ -4,7 +4,7 @@
  * Copyright 2018 IS2T. All rights reserved.
  * IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package com.microej.demo.hello.drawing;
+package xyz.elian.doran.microej.demo.tic_tac_toe.drawing;
 
 import ej.microui.display.Display;
 import ej.microui.display.GraphicsContext;
