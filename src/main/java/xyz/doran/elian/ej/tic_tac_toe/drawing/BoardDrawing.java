@@ -18,7 +18,7 @@ import xyz.doran.elian.ej.tic_tac_toe.core.TicTacToeBoard;
 /**
  *
  */
-public class BoardDrawing extends Drawing {
+public class BoardDrawing extends DrawingBase {
 	private final TicTacToeBoard board;
 
 	private final int BOX_SIZE = 70;

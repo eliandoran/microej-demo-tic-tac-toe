@@ -12,7 +12,7 @@ import ej.microui.display.GraphicsContext;
 /**
  *
  */
-public abstract class Drawing {
+public abstract class DrawingBase {
 	protected GraphicsContext graphicsContext;
 	protected Display display;
 

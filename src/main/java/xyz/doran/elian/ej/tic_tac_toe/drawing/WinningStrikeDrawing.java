@@ -14,7 +14,7 @@ import xyz.doran.elian.ej.tic_tac_toe.core.WinnerChecker;
 /**
  *
  */
-public class WinningStrikeDrawing extends Drawing {
+public class WinningStrikeDrawing extends DrawingBase {
 	private final BoardDrawing boardDrawing;
 	private final WinnerChecker winnerChecker;
 	private final int color;
