@@ -4,4 +4,4 @@ Application-Version: 1.0.0
 Application-PrintableName: Tic-Tac-Toe
 Application-Description: A simple three by three tic-tac-toe game
 Application-Activities: xyz.doran.elian.ej.tic_tac_toe.TicTacToeActivity
-Application-IconsDirectory: icons
+Application-IconsDirectory: xyz.doran.elian.ej.tic_tac_toe.icons
