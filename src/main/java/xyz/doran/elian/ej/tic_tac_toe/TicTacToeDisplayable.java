@@ -5,7 +5,7 @@
  * For demonstration purpose only.
  * IS2T PROPRIETARY. Use is subject to license terms.
  */
-package xyz.doran.elian.microej.demo.tic_tac_toe;
+package xyz.doran.elian.ej.tic_tac_toe;
 
 import ej.microui.display.Colors;
 import ej.microui.display.Display;
@@ -15,22 +15,22 @@ import ej.microui.event.Event;
 import ej.microui.event.EventGenerator;
 import ej.microui.event.generator.Pointer;
 import ej.microui.util.EventHandler;
-import xyz.doran.elian.microej.demo.tic_tac_toe.core.GameLogic;
-import xyz.doran.elian.microej.demo.tic_tac_toe.core.Point;
-import xyz.doran.elian.microej.demo.tic_tac_toe.core.TicTacToeBoard;
-import xyz.doran.elian.microej.demo.tic_tac_toe.drawing.BoardDrawing;
-import xyz.doran.elian.microej.demo.tic_tac_toe.drawing.WinningStrikeDrawing;
+import xyz.doran.elian.ej.tic_tac_toe.core.GameLogic;
+import xyz.doran.elian.ej.tic_tac_toe.core.Point;
+import xyz.doran.elian.ej.tic_tac_toe.core.TicTacToeBoard;
+import xyz.doran.elian.ej.tic_tac_toe.drawing.BoardDrawing;
+import xyz.doran.elian.ej.tic_tac_toe.drawing.WinningStrikeDrawing;
 
 /**
  * Displays MicroEJ image and a list of "Hello" messages.
  */
-public class HelloDisplayable extends Displayable implements EventHandler {
+public class TicTacToeDisplayable extends Displayable implements EventHandler {
 	private final TicTacToeBoard board;
 	private final GameLogic logic;
 	private final BoardDrawing boardDrawing;
 	private final WinningStrikeDrawing strikeDrawing;
 
-	public HelloDisplayable() {
+	public TicTacToeDisplayable() {
 		super(Display.getDefaultDisplay());
 
 		board = new TicTacToeBoard();

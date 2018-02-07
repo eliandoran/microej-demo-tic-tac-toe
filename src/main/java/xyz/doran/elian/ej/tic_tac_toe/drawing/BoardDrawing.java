@@ -4,16 +4,16 @@
  * Copyright 2018 IS2T. All rights reserved.
  * IS2T PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
-package xyz.doran.elian.microej.demo.tic_tac_toe.drawing;
+package xyz.doran.elian.ej.tic_tac_toe.drawing;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import ej.microui.display.Colors;
-import xyz.doran.elian.microej.demo.tic_tac_toe.core.CellState;
-import xyz.doran.elian.microej.demo.tic_tac_toe.core.Point;
-import xyz.doran.elian.microej.demo.tic_tac_toe.core.Rectangle;
-import xyz.doran.elian.microej.demo.tic_tac_toe.core.TicTacToeBoard;
+import xyz.doran.elian.ej.tic_tac_toe.core.CellState;
+import xyz.doran.elian.ej.tic_tac_toe.core.Point;
+import xyz.doran.elian.ej.tic_tac_toe.core.Rectangle;
+import xyz.doran.elian.ej.tic_tac_toe.core.TicTacToeBoard;
 
 /**
  *

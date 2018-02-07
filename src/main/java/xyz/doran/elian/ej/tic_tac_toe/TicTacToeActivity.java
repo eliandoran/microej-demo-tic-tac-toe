@@ -5,7 +5,7 @@
  * For demonstration purpose only.
  * IS2T PROPRIETARY. Use is subject to license terms.
  */
-package xyz.doran.elian.microej.demo.tic_tac_toe;
+package xyz.doran.elian.ej.tic_tac_toe;
 
 import ej.microui.MicroUI;
 import ej.wadapps.app.Activity;
@@ -13,17 +13,17 @@ import ej.wadapps.app.Activity;
 /**
  * Hello activity
  */
-public class HelloActivity implements Activity {
-	private HelloDisplayable displayable;
+public class TicTacToeActivity implements Activity {
+	private TicTacToeDisplayable displayable;
 
 
-	public HelloActivity() {
+	public TicTacToeActivity() {
 		MicroUI.start();
 	}
 
 	@Override
 	public void onStart() {
-		displayable = new HelloDisplayable();
+		displayable = new TicTacToeDisplayable();
 		displayable.show();
 	}
 
